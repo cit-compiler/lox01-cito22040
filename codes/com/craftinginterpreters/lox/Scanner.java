@@ -18,6 +18,11 @@ class Scanner {
     this.source = source;
   }
 
+  private char peek() {
+    if (isAtEnd()) return '\0';
+    return source.charAt(current);
+  }
+
   List<Token> scanTokens() {
     while (!isAtEnd()) {
       start = current;
