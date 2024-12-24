@@ -157,7 +157,7 @@ class Scanner {
     addToken(NUMBER,Double.parseDouble(source.substring(start, current)));
   }
 
-
+//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   private void string() {
     while (peek() != '"' && !isAtEnd()) {
       if (peek() == '\n') line++;
@@ -176,6 +176,26 @@ class Scanner {
     String value = source.substring(start + 1, current - 1);
     addToken(STRING, value);
   }
+
+  /*private void string() {
+    while (peek() != '\"' && !isAtEnd()) {
+      if(peek() =='\\')
+      advance();
+      if (peek() == '\n') line++;
+      advance();
+    }
+
+    if (isAtEnd()) {
+      Lox.error(line, "Unterminated string.");
+      return;
+    }
+
+    advance();
+
+    String value = source.substring(start + 1, current - 1);
+    String newvalue = value.replace("\\\"", "\"");
+    addToken(STRING, newvalue);
+  }*/
 
  private boolean match(char expected) {
     if (isAtEnd()) return false;
