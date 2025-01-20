@@ -14,7 +14,7 @@ class Scanner {
   private int current = 0;
   private int line = 1;
 
-  private static final Map<String, TokenType> keywords;
+  private static final Map<String,TokenType> keywords;
 
   static {
     keywords = new HashMap<>();
@@ -137,8 +137,10 @@ class Scanner {
     while (isAlphaNumeric(peek())) advance();
     String text = source.substring(start, current);
     TokenType type = keywords.get(text);
-    if (type == null) type = IDENTIFIER;
-    addToken(IDENTIFIER);
+    if (type == null) {
+      type = IDENTIFIER;
+    }
+    addToken(type);
   }
 
 
